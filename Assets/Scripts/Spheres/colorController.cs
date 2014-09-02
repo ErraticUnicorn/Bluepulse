@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class colorController : MonoBehaviour {
 
+    public float timer = 3;
+
+
+    private bool isBlue = false;
+    private int currentSpriteIndex;
     private List<Sprite> textures;
     private SpriteRenderer renderer;
 	// Use this for initialization
@@ -11,17 +16,37 @@ public class colorController : MonoBehaviour {
         renderer = this.GetComponent<SpriteRenderer>();
         textures = new List<Sprite>();
         LoadImages(textures);
-
-        this.setSprite(textures[(int) (Random.Range(0, textures.Count))]);
+        currentSpriteIndex = (int)(Random.Range(0, textures.Count));
+        checkBlue();
+        this.setSprite(currentSpriteIndex);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        timer -= Time.deltaTime;
+        if (timer <= 0) {
+            timer = 5f;
+            currentSpriteIndex++;
+            if (currentSpriteIndex > textures.Count - 1)
+            {
+                currentSpriteIndex = 0;
+            }
+            this.setSprite(currentSpriteIndex);
+            checkBlue();
+        }
 	}
 
-    private void setSprite(Sprite newSprite) {
-        renderer.sprite = newSprite;
+    private void checkBlue()  {
+        if (currentSpriteIndex == 0) {
+            isBlue = true;
+        }
+        else {
+            isBlue = false;
+        }
+    }
+
+    private void setSprite(int newSprite) {
+        renderer.sprite = textures[newSprite];
     }
 
     private void LoadImages(List<Sprite> textures) {
