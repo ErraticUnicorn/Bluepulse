@@ -15,6 +15,8 @@ public class movementController : MonoBehaviour {
     private Vector3 bottomEdge;
     private Vector3 topEdge;
 
+    private Vector2 curVelocity;
+
 	// Use this for initialization
 	void Start () {
         leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(0.0f,0.0f, 0.0f));
@@ -60,9 +62,21 @@ public class movementController : MonoBehaviour {
             curSpeed.y = -this.rigidbody2D.velocity.y;
             this.rigidbody2D.velocity = curSpeed;
         }
-
-
     }
 
+    public void stopMovement() {
+        curVelocity = this.rigidbody2D.velocity;
+        this.rigidbody2D.velocity = Vector2.zero;
+    }
 
+    public void resumeMovement() {
+        rigidbody2D.AddForce(curVelocity);
+    }
+
+    public void addForce(float constant, Vector2 direction) {
+        float speedx = speed.x * direction.x;
+        float speedy = speed.y * direction.y;
+        Vector2 newSpeed = new Vector2(constant * speedx, constant * speedy);
+        rigidbody2D.AddForce(newSpeed);
+    }
 }

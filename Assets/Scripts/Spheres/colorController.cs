@@ -8,6 +8,7 @@ public class colorController : MonoBehaviour {
 
 
     private bool isBlue = false;
+    private bool hasBeenClicked = false;
     private int currentSpriteIndex;
     private List<Sprite> textures;
     private SpriteRenderer renderer;
@@ -23,26 +24,37 @@ public class colorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timer -= Time.deltaTime;
-        if (timer <= 0) {
-            timer = 5f;
-            currentSpriteIndex++;
-            if (currentSpriteIndex > textures.Count - 1)
+        if (!hasBeenClicked)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                currentSpriteIndex = 0;
+                timer = 5f;
+                currentSpriteIndex++;
+                if (currentSpriteIndex > textures.Count - 1)
+                {
+                    currentSpriteIndex = 0;
+                }
+                this.setSprite(currentSpriteIndex);
+                checkBlue();
             }
-            this.setSprite(currentSpriteIndex);
-            checkBlue();
         }
 	}
 
-    private void checkBlue()  {
+    public bool checkBlue()  {
         if (currentSpriteIndex == 0) {
             isBlue = true;
         }
         else {
             isBlue = false;
         }
+        return isBlue;
+    }
+
+    public void setBlue()
+    {
+        hasBeenClicked = true;
+        setSprite(0);
     }
 
     private void setSprite(int newSprite) {
