@@ -22,7 +22,7 @@ public class inputController : MonoBehaviour {
 	}
 
     void OnMouseDown() {
-        if (currentColor.checkBlue()) {
+        if (currentColor.sphereColor == sphereType.BLUE) {
             currentColor.setBlue();
             lastPos = this.transform.position;
             movement.stopMovement();

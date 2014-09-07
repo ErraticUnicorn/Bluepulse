@@ -16,6 +16,7 @@ public class movementController : MonoBehaviour {
     private Vector3 topEdge;
 
     private Vector2 curVelocity;
+    private Vector2 curDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -60,10 +61,27 @@ public class movementController : MonoBehaviour {
         rigidbody2D.AddForce(curVelocity);
     }
 
+    public Vector2 getCurDirection(){
+        return curDirection;
+    }
+
     public void addForce(float constant, Vector2 direction) {
+        curDirection = direction;
         float speedx = speed.x * direction.x;
         float speedy = speed.y * direction.y;
         Vector2 newSpeed = new Vector2(constant * speedx, constant * speedy);
         rigidbody2D.AddForce(newSpeed);
+    }
+
+    public void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.tag == "sphere")
+        {
+            if (this.gameObject.GetComponent<colorController>().bluePulseActive())
+            {
+                other.gameObject.GetComponent<colorController>().hitByBlue();
+            }
+            //gain/remove force from other ball?
+            this.addForce(1, -curDirection);
+        }
     }
 }

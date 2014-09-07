@@ -29,7 +29,7 @@ public class sphereSpawner : MonoBehaviour {
         Vector3 leftSpawnpoint = Camera.main.ViewportToWorldPoint(new Vector3(-.20f, 0.5f, 0.0f));
         Vector3 rightSpawnpoint = Camera.main.ViewportToWorldPoint(new Vector3(1.20f, 0.5f, 0.0f));
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             movementController mvmt = spheres[i].GetComponent<movementController>();
             spheres[i].SetActive(true);
             Vector2 direction;
