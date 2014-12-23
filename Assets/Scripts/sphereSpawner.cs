@@ -26,24 +26,26 @@ public class sphereSpawner : MonoBehaviour {
             spheres[i].SetActive(false);
             spheres[i].transform.parent = this.transform.parent;
         }
-        Vector3 leftSpawnpoint = Camera.main.ViewportToWorldPoint(new Vector3(-.20f, 0.5f, 0.0f));
-        Vector3 rightSpawnpoint = Camera.main.ViewportToWorldPoint(new Vector3(1.20f, 0.5f, 0.0f));
 
-        for (int i = 0; i < 10; i++) {
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(1.0f,0.0f, 0.0f));
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
+        Vector3 bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
+        Vector3 topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
+
+        for (int i = 0; i < spherePoolCount/2; i++) {
             movementController mvmt = spheres[i].GetComponent<movementController>();
             spheres[i].SetActive(true);
             Vector2 direction;
             direction.y = Random.Range(-.75f, .75f);
-            float leftOrRight = Random.Range(0f, 1f);
-            if(leftOrRight < .5){
-                spheres[i].transform.position = new Vector3(leftSpawnpoint.x, leftSpawnpoint.y, this.transform.position.z);
-                direction.x = Random.Range(0f, 1f);
-                mvmt.addForce(1, direction);
-            } else {
-                spheres[i].transform.position = new Vector3(rightSpawnpoint.x, rightSpawnpoint.y, this.transform.position.z);
-                direction.x = Random.Range(-1f, 0f);
-                mvmt.addForce(1, direction);
-            }
+            Vector2 position;
+            position.y = Random.Range(bottomEdge.y, topEdge.y);
+            position.x = Random.Range(leftEdge.x, rightEdge.x);
+            Debug.Log(bottomEdge.y);
+            Debug.Log(topEdge.y);
+            spheres[i].transform.position = new Vector3(position.x, position.y, this.transform.position.z);
+            direction.x = Random.Range(-1f, 1f);
+            mvmt.addForce(1, direction);
+           
         }
 
     }
