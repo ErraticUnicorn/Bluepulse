@@ -1,0 +1,13 @@
+magnetic fence/vacuum when ball is close that hit the blue ball
+make balls spawn as you progress
+make balls get faster as you progress
+purple speed up ball
+
+shield/yellow, weapons/red, engines/green, speed/purple pocket
+rarity of balls
+
+from common -> rare
+1.) engines
+2.) shield
+3.) weapons
+4.) speed
