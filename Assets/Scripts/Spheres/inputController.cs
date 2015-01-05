@@ -8,7 +8,7 @@ public class inputController : MonoBehaviour {
     private Vector3 mousePos;
     private colorController currentColor;
     private movementController movement;
-	public float heldPercentage;
+	private float heldPercentage;
 	public float maxHoldTime;
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class inputController : MonoBehaviour {
 	void Update () {
 		if (actionOngoing && heldPercentage <= 1.0f)
 		{
-			heldPercentage = Mathf.Min(heldPercentage + Time.deltaTime / maxHoldTime, 1.0f);
+			heldPercentage = heldPercentage + Time.deltaTime / maxHoldTime;
 		}
 	}
 
@@ -37,14 +37,23 @@ public class inputController : MonoBehaviour {
     }
 
     void OnMouseUp() {
-        if (actionOngoing) {
-            Vector3 pos = Input.mousePosition;
-            pos.z = transform.position.z - Camera.main.transform.position.z;
-            mousePos = Camera.main.ScreenToWorldPoint(pos);
-            Vector3 heading = mousePos - lastPos;
-            float distance = heading.magnitude;
-            Vector3 direction = heading / distance;
-            movement.addForce(distance * heldPercentage, direction);
+        if (actionOngoing)
+		{
+			Vector3 pos = Input.mousePosition;
+			pos.z = transform.position.z - Camera.main.transform.position.z;
+			mousePos = Camera.main.ScreenToWorldPoint(pos);
+			Vector3 heading = mousePos - lastPos;
+			float distance = heading.magnitude;
+			Vector3 direction;
+			if (heldPercentage <= 1.0f)
+			{
+				direction = heading / distance;
+			}
+			else
+			{
+				direction = Random.insideUnitCircle.normalized;
+			}
+            movement.addForce(distance * (heldPercentage <= 1.0f ? heldPercentage : 1.0f), direction);
         }
         actionOngoing = false;
     }
