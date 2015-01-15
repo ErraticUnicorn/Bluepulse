@@ -40,8 +40,6 @@ public class sphereSpawner : MonoBehaviour {
             Vector2 position;
             position.y = Random.Range(bottomEdge.y, topEdge.y);
             position.x = Random.Range(leftEdge.x, rightEdge.x);
-            Debug.Log(bottomEdge.y);
-            Debug.Log(topEdge.y);
             spheres[i].transform.position = new Vector3(position.x, position.y, this.transform.position.z);
             direction.x = Random.Range(-1f, 1f);
             mvmt.addForce(1, direction);
