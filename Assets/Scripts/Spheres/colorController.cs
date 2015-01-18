@@ -16,10 +16,10 @@ public class colorController : MonoBehaviour {
 
     public float timer = 3;
     public sphereType sphereColor;
+    public bool isBlue = false;
 
 
     private bool hasBeenHitByBluePulse = false;
-    private bool hasBeenClicked = false;
     private int currentSpriteIndex;
     private List<Sprite> textures;
     private SpriteRenderer renderer;
@@ -28,13 +28,20 @@ public class colorController : MonoBehaviour {
         renderer = this.GetComponent<SpriteRenderer>();
         textures = new List<Sprite>();
         LoadImages(textures);
-        currentSpriteIndex = (int)(Random.Range(0, textures.Count));
-        this.setSprite(currentSpriteIndex);
+        if (!isBlue)
+        {
+            currentSpriteIndex = (int)(Random.Range(1, textures.Count));
+            this.setSprite(currentSpriteIndex);
+        }
+        else
+        {
+            this.setSprite(0);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (!hasBeenClicked)
+        if (!isBlue)
             if (!hasBeenHitByBluePulse)
             {
 
@@ -46,7 +53,7 @@ public class colorController : MonoBehaviour {
                         currentSpriteIndex++;
                         if (currentSpriteIndex > textures.Count - 1)
                         {
-                            currentSpriteIndex = 0;
+                            currentSpriteIndex = 1;
                         }
                         this.setSprite(currentSpriteIndex);
                         sphereColor = checkColor();
@@ -82,13 +89,12 @@ public class colorController : MonoBehaviour {
 
     public void setBlue()
     {
-        hasBeenClicked = true;
         setSprite(0);
     }
 
     public bool bluePulseActive()
     {
-        if (sphereColor == sphereType.BLUE && hasBeenClicked)
+        if (sphereColor == sphereType.BLUE && isBlue)
         {
             return true;
         }

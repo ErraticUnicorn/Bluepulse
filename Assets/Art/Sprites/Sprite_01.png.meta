@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 3270ba2325d9a7e459f34946b8d97945
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sprite_01_0
+    21300002: Sprite_01_1
+    21300004: Sprite_01_2
+    21300006: Sprite_01_3
+    21300008: Sprite_01_4
+    21300010: Sprite_01_5
+    21300012: Sprite_01_6
+    21300014: Sprite_01_7
+    21300016: Sprite_01_8
+    21300018: Sprite_01_9
+    21300020: Sprite_01_10
+    21300022: Sprite_01_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sprite_01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 253
+        width: 250
+        height: 259
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 387
+        width: 133
+        height: 120
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_2
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 440
+        width: 70
+        height: 18
+      alignment: 9
+      pivot: {x: .811802864, y: .421771586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 262
+        width: 108
+        height: 113
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 136
+        width: 115
+        height: 113
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 136
+        width: 109
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 133
+        width: 114
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 129
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 132
+        height: 131
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_9
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 124
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_10
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 128
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_01_11
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 0
+        width: 118
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

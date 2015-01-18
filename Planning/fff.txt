@@ -1,0 +1,17 @@
+No changing colors
+Balls come in from the sides (rarity of colors)
+	Always have (5?) balls on screen
+	
+
+Pockets up top
+Blue ball stays in the  middle bottom,
+Once the blue ball leaves the screen.
+
+
+1.) Reorganize pockets - Martin
+2.) Make pockets have their own scorers - Martin
+3.) Move blue ball to bottom center, and have it spawn there when it leaves the screen - David
+4.) Readd the slingshot mechanic - David (Y)
+5.) Parallax the spaceship. - David
+6.) Replace assets
+7.) At the end of Sunday night have it up on the web. - David
