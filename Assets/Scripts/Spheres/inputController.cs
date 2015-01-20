@@ -8,7 +8,6 @@ public class inputController : MonoBehaviour {
     private Vector3 mousePos;
     private colorController currentColor;
     private movementController movement;
-
 	// Use this for initialization
 	void Start () {
         actionOngoing = false;
@@ -17,20 +16,18 @@ public class inputController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	}
+
 
     void OnMouseDown() {
-        if (currentColor.sphereColor == sphereType.BLUE) {
-            currentColor.setBlue();
-            lastPos = this.transform.position;
-            movement.stopMovement();
-            actionOngoing = true;
-        }
+        lastPos = this.transform.position;
+        movement.stopMovement();
+        actionOngoing = true;
     }
 
-    void OnMouseUp()  {
-        if (actionOngoing) {
+    void OnMouseUp()
+    {
+        if (actionOngoing)
+        {
             Vector3 pos = Input.mousePosition;
             pos.z = transform.position.z - Camera.main.transform.position.z;
             mousePos = Camera.main.ScreenToWorldPoint(pos);

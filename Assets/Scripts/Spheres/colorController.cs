@@ -40,28 +40,6 @@ public class colorController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (!isBlue)
-            if (!hasBeenHitByBluePulse)
-            {
-
-                {
-                    timer -= Time.deltaTime;
-                    if (timer <= 0)
-                    {
-                        timer = 5f;
-                        currentSpriteIndex++;
-                        if (currentSpriteIndex > textures.Count - 1)
-                        {
-                            currentSpriteIndex = 1;
-                        }
-                        this.setSprite(currentSpriteIndex);
-                        sphereColor = checkColor();
-
-                    }
-                }
-            }
-	}
 
     public sphereType checkColor()
     {
