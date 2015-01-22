@@ -20,8 +20,8 @@ public class movementController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(1.0f,0.0f, 0.0f));
-        rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
+        //leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(1.0f,0.0f, 0.0f));
+        //rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
 
