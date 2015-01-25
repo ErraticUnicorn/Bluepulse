@@ -18,12 +18,12 @@ public class sphereSpawner : MonoBehaviour {
         spawnedSpheres = new List<GameObject>();
         if (leftSpawn)
         {
-            dirX = 1;
+            dirX = -1;
 
         }
         else
         {
-            dirX = -1;
+            dirX = 1;
         }
 
 	}
@@ -62,8 +62,8 @@ public class sphereSpawner : MonoBehaviour {
             Vector2 direction;
             direction.y = Random.Range(-.75f, .75f);
             direction.x = Random.Range(-1, 0 * dirX);
-            mvmt.addForce(1, direction);
-            timer = 30;
+            mvmt.addForce(5, direction*dirX);
+            timer = 180;
             index++;
             if (index >= spherePoolCount / 2)
                 index = 0;

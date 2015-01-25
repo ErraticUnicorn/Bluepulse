@@ -20,8 +20,8 @@ public class movementController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(1.0f,0.0f, 0.0f));
-        //rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
+        //leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(2.0f,0.0f, 0.0f));
+        //rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,2.0f, 0.0f));
         bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
 
@@ -30,7 +30,7 @@ public class movementController : MonoBehaviour {
     void FixedUpdate() {
         Vector2 curSpeed = this.rigidbody2D.velocity;
 
-        if (transform.position.x > rightEdge.x)
+        /*if (transform.position.x > rightEdge.x)
         {
             curSpeed.x = -this.rigidbody2D.velocity.x;
             this.rigidbody2D.velocity = curSpeed;
@@ -49,7 +49,7 @@ public class movementController : MonoBehaviour {
         {
             curSpeed.y = -this.rigidbody2D.velocity.y;
             this.rigidbody2D.velocity = curSpeed;
-        }
+        }*/
        
     }
 
@@ -78,10 +78,6 @@ public class movementController : MonoBehaviour {
     public void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.tag == "sphere")
         {
-            if (this.gameObject.GetComponent<colorController>().bluePulseActive())
-            {
-                other.gameObject.GetComponent<colorController>().hitByBlue();
-            }
             //gain/remove force from other ball?
             this.addForce(1, -curDirection);
         }

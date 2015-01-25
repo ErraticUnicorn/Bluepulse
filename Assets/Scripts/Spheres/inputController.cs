@@ -34,7 +34,7 @@ public class inputController : MonoBehaviour {
             Vector3 heading = mousePos - lastPos;
             float distance = heading.magnitude;
             Vector3 direction = heading / distance;
-            movement.addForce(distance, -direction);
+            movement.addForce(distance  + 5, -direction);
         }
     }
 }
