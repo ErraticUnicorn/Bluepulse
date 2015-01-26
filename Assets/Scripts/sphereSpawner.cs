@@ -39,7 +39,6 @@ public class sphereSpawner : MonoBehaviour {
         }
 
         for (int i = 0; i < spherePoolCount/2; i++) {
-            //spheres[i].SetActive(true);
             Vector2 position;
             position.y = this.transform.position.y;
             position.x = this.transform.position.x;
