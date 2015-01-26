@@ -10,7 +10,12 @@ public class Generator : MonoBehaviour
 	public Text text;
 	Image image;
 	float value;
-	
+
+	public void AddValue( float _value )
+	{
+		SetValue( value + _value );
+	}
+
 	public void SetValue( float _value )
 	{
 		value = _value;

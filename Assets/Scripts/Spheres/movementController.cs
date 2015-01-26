@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class movementController : MonoBehaviour {
@@ -7,6 +8,7 @@ public class movementController : MonoBehaviour {
     public Vector2 direction = new Vector2 (1, 1);
     public bool isBlue;
     public bool hasBeenHitByBlue = false;
+	public Color myColor;
 
     private Vector2 movement;
     private float accelConst = 1;
@@ -102,6 +104,16 @@ public class movementController : MonoBehaviour {
             if (other.gameObject.name == "GeneratorSpriteYellow" || other.gameObject.name == "GeneratorSpriteRed"
                 || other.gameObject.name == "GeneratorSpriteGreen" || other.gameObject.name == "GeneratorSpritePurple")
             {
+				GameObject hitGameObject = other.gameObject;
+				Image imageComponent = hitGameObject.GetComponent<Image>();
+				if (imageComponent && imageComponent.color == myColor)
+				{
+					Generator generator = hitGameObject.GetComponent<Generator>();
+					if (generator)
+					{
+						generator.AddValue(10);
+					}
+				}
                 this.gameObject.SetActive(false);
             }
         }
