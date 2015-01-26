@@ -5,6 +5,8 @@ public class movementController : MonoBehaviour {
 
     public Vector2 speed = new Vector2(10, 10);
     public Vector2 direction = new Vector2 (1, 1);
+    public bool isBlue;
+    public bool hasBeenHitByBlue = false;
 
     private Vector2 movement;
     private float accelConst = 1;
@@ -14,23 +16,31 @@ public class movementController : MonoBehaviour {
     private Vector3 rightEdge;
     private Vector3 bottomEdge;
     private Vector3 topEdge;
+    private Vector3 originalPos;
 
     private Vector2 curVelocity;
     private Vector2 curDirection;
 
 	// Use this for initialization
 	void Start () {
-        //leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(2.0f,0.0f, 0.0f));
-        //rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,2.0f, 0.0f));
+        leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(2.0f,0.0f, 0.0f));
+        rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(-2.0f,0.0f, 0.0f));
         bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
-
 	}
+
+    void Awake()
+    {
+        if (isBlue)
+        {
+            originalPos = this.transform.position;
+        }
+    }
 
     void FixedUpdate() {
         Vector2 curSpeed = this.rigidbody2D.velocity;
 
-        /*if (transform.position.x > rightEdge.x)
+        if (transform.position.x > rightEdge.x)
         {
             curSpeed.x = -this.rigidbody2D.velocity.x;
             this.rigidbody2D.velocity = curSpeed;
@@ -49,7 +59,7 @@ public class movementController : MonoBehaviour {
         {
             curSpeed.y = -this.rigidbody2D.velocity.y;
             this.rigidbody2D.velocity = curSpeed;
-        }*/
+        }
        
     }
 
@@ -76,10 +86,48 @@ public class movementController : MonoBehaviour {
     }
 
     public void OnCollisionEnter2D(Collision2D other){
-        if (other.gameObject.tag == "sphere")
+
+        if (other.gameObject.tag == "sphere" )
         {
+
             //gain/remove force from other ball?
-            this.addForce(1, -curDirection);
+            this.addForce(5, -curDirection);
+            if (other.gameObject.name == "bluepulse")
+            {
+                hasBeenHitByBlue = true;
+            }
+        }
+
+        if(this.gameObject.name != "bluepulse" && hasBeenHitByBlue){
+            if (other.gameObject.name == "GeneratorSpriteYellow" || other.gameObject.name == "GeneratorSpriteRed"
+                || other.gameObject.name == "GeneratorSpriteGreen" || other.gameObject.name == "GeneratorSpritePurple")
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
+
+        else
+        {
+            hasBeenHitByBlue = false;
+            this.addForce(5, -curDirection);
+        }
+    }
+
+     void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.name == "Bluepulse Area")
+        {
+            this.hasBeenHitByBlue = false;
+            this.addForce(10, -curDirection);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (isBlue)
+        {
+            bluePulseSpawner spawner = other.gameObject.GetComponent<bluePulseSpawner>();
+            spawner.isBlueBallPresent = false;
         }
     }
 }
