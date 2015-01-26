@@ -10,7 +10,7 @@ public class spherePocket : MonoBehaviour {
 
     void Start()
     {
-        scorer = GameObject.Find("scorer").GetComponent<scoreText>();
+        scorer = gameObject.GetComponent<percentageText>();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -21,12 +21,12 @@ public class spherePocket : MonoBehaviour {
             if (color.bluePulseActive())
             {
                 other.gameObject.SetActive(false);
-                scorer.updateScore(-1);
+//                scorer.updateScore(-10);
             }
 
             if (color.hasBeenHitByBlue() && color.sphereColor == this.currentType)
             {
-                scorer.updateScore(1);
+                scorer.updateScore(10);
                 other.gameObject.SetActive(false);
             }
         }

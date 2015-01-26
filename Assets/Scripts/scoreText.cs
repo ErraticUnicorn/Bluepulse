@@ -3,7 +3,7 @@ using System.Collections;
 
 public class scoreText : MonoBehaviour {
 
-    int score;
+    protected int score;
 	// Use this for initialization
 	void Start () {
         score = 0;
