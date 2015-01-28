@@ -131,7 +131,7 @@ public class movementController : MonoBehaviour {
         if (other.gameObject.name == "Bluepulse Area")
         {
             this.hasBeenHitByBlue = false;
-            this.addForce(10, -curDirection);
+            this.addForce(7.5f, -curDirection);
         }
     }
 

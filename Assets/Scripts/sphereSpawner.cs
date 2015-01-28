@@ -62,7 +62,7 @@ public class sphereSpawner : MonoBehaviour {
             direction.y = Random.Range(-.75f, .75f);
             direction.x = Random.Range(-1, 0 * dirX);
             mvmt.addForce(5, direction*dirX);
-            timer = 180;
+            timer = 400;
             index++;
             if (index >= spherePoolCount / 2)
                 index = 0;
