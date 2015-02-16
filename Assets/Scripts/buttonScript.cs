@@ -9,7 +9,12 @@ public class buttonScript : MonoBehaviour {
             weaponsScript weapon = Ship.GetComponent<weaponsScript>();
             if (weapon != null)
             {
-                weapon.Attack(false);
-            }
+				Generator generator = Ship.GetComponent<Generator>();
+				if (generator.isReady())
+				{
+					generator.Activate();
+					weapon.Attack(false);
+				}
+			}
 	}
 }

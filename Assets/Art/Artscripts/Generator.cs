@@ -21,6 +21,17 @@ public class Generator : MonoBehaviour
 		value = _value;
 		CheckValue();
 	}
+
+	public bool isReady()
+	{
+		return value == 100;
+	}
+
+	public void Activate()
+	{
+		value = 0;
+		CheckValue();
+	}
 	
 	void Start()
 	{
