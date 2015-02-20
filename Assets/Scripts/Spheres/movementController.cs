@@ -23,12 +23,20 @@ public class movementController : MonoBehaviour {
     private Vector2 curVelocity;
     private Vector2 curDirection;
 
+	private bool isTouching;
+
 	// Use this for initialization
 	void Start () {
         leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(2.0f,0.0f, 0.0f));
         rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(-2.0f,0.0f, 0.0f));
         bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
+		isTouching = false;
+
+		if (!isBlue)
+		{
+			originalPos = this.transform.position;
+		}
 	}
 
     void Awake()
@@ -63,6 +71,11 @@ public class movementController : MonoBehaviour {
             this.rigidbody2D.velocity = curSpeed;
         }
        
+		if (!isBlue && !hasBeenHitByBlue)
+		{	
+			addForce(Time.fixedDeltaTime * Random.Range(0f, .5f), new Vector2(1,0));
+		}
+
     }
 
 
@@ -93,7 +106,7 @@ public class movementController : MonoBehaviour {
         {
 
             //gain/remove force from other ball?
-            this.addForce(5, -curDirection);
+            this.addForce(1f, -curDirection);
             if (other.gameObject.name == "bluepulse")
             {
                 hasBeenHitByBlue = true;
@@ -123,7 +136,25 @@ public class movementController : MonoBehaviour {
             hasBeenHitByBlue = false;
             this.addForce(5, -curDirection);
         }
+
+		if (!isBlue && other.gameObject.name == "Right Wall")
+		{
+			transform.position = originalPos;
+		}
     }
+
+	void OnCollisionStay2D(Collider2D other)
+	{
+		if (other.gameObject.tag != "sphere")
+		{
+			isTouching = true;
+		}
+	}
+
+	void OnCollisionExit2D(Collider2D other)
+	{
+		isTouching = false;
+	}
 
      void OnTriggerEnter2D(Collider2D other)
     {
