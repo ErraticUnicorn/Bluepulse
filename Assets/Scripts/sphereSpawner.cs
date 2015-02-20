@@ -31,7 +31,8 @@ public class sphereSpawner : MonoBehaviour {
     void Awake() {
         spheres = new GameObject[spherePoolCount];
         for (int i = 0; i < spheres.Length; i++) {
-            int arrayIndex = Random.Range(0, sphereType.Length);
+			float rValue = Random.value;
+            int arrayIndex = rValue <= .4f ? 1 : rValue <= .7f ? 2 : rValue <= .9f ? 0 : 3; // Weight sphere types.
             GameObject sphere = sphereType[arrayIndex];
             spheres[i] = Instantiate(sphere) as GameObject;
             spheres[i].SetActive(false);
