@@ -38,35 +38,41 @@ public class sphereSpawner : MonoBehaviour {
             spheres[i].SetActive(false);
             spheres[i].transform.parent = this.transform.parent;
         }
-
-        for (int i = 0; i < spherePoolCount/2; i++) {
-            Vector2 position;
-            position.y = this.transform.position.y;
-            position.x = this.transform.position.x;
-            spheres[i].transform.position = new Vector3(position.x, position.y, -1);
-           
-        }
-
     }
 
     // Update is called once per frame
-    int timer = 0;
+    float timer = 5.0f;
+	const float timerMax = 5.0f;
     int index = 0;
     void Update()
     {
-        timer--;
+		timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            movementController mvmt = spheres[index].GetComponent<movementController>();
-            spheres[index].SetActive(true);
+			GameObject sphere;
+			int finalIndex = Mathf.Max(index - 1, 0);
+			// Find next non-active sphere. Avoid infinite loop.
+			do
+			{
+
+				sphere = spheres[index];
+				index = (index + 1) % spherePoolCount;
+			}
+			while (sphere.activeInHierarchy && index != finalIndex);
+			sphere.SetActive(true);
+
+			Vector2 position;
+			position.y = this.transform.position.y;
+			position.x = this.transform.position.x;
+			sphere.transform.position = new Vector3(position.x, position.y, -1);
+
             Vector2 direction;
             direction.y = Random.Range(-.75f, .75f);
             direction.x = Random.Range(-1, 0 * dirX);
+			movementController mvmt = sphere.GetComponent<movementController>();
             mvmt.addForce(5, direction*dirX);
-            timer = 400;
-            index++;
-            if (index >= spherePoolCount / 2)
-                index = 0;
+
+            timer = timerMax;
         }
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class weaponsScript : MonoBehaviour {
+public class weaponsScript : Ability {
 
     public Transform shotPrefab;
     public GameObject topGun;
@@ -23,7 +23,8 @@ public class weaponsScript : MonoBehaviour {
             shootCooldown -= Time.deltaTime;
         }
     }
-    public void Attack(bool isEnemy)
+
+    public override void Use()
     {
         if (CanAttack)
         {
