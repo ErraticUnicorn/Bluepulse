@@ -92,6 +92,11 @@ public class movementController : MonoBehaviour {
         return curDirection;
     }
 
+    public void zeroForce(){
+        this.rigidbody2D.Sleep();
+        this.rigidbody2D.WakeUp();
+    }
+
     public void addForce(float constant, Vector2 direction) {
         curDirection = direction;
         float speedx = speed.x * direction.x;
@@ -104,9 +109,7 @@ public class movementController : MonoBehaviour {
 
         if (other.gameObject.tag == "sphere" )
         {
-
             //gain/remove force from other ball?
-            this.addForce(1f, -curDirection);
             if (other.gameObject.name == "bluepulse")
             {
                 hasBeenHitByBlue = true;
@@ -134,7 +137,7 @@ public class movementController : MonoBehaviour {
         else
         {
             hasBeenHitByBlue = false;
-            this.addForce(5, -curDirection);
+            //this.addForce(5, -curDirection);
         }
 
 		if (!isBlue && other.gameObject.name == "Right Wall")

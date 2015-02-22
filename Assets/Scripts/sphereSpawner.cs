@@ -67,10 +67,10 @@ public class sphereSpawner : MonoBehaviour {
 			sphere.transform.position = new Vector3(position.x, position.y, -1);
 
             Vector2 direction;
-            direction.y = Random.Range(-.75f, .75f);
-            direction.x = Random.Range(-1, 0 * dirX);
+            direction.y = Random.Range(-.6f, .6f);
+            direction.x = Random.Range(1, 0);
 			movementController mvmt = sphere.GetComponent<movementController>();
-            mvmt.addForce(5, direction*dirX);
+            mvmt.addForce(5f, direction);
 
             timer = timerMax;
         }
