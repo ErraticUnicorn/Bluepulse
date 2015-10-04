@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bluePulseSpawner : MonoBehaviour {
+public class bluePulseSpawner : MonoBehaviour
+{
 
-    public bool isBlueBallPresent = true;
-    public movementController bluepulse;
+	public bool isBlueBallPresent = true;
+	public movementController bluepulse;
 
-    void OnMouseDown()
-    {
-        if (!isBlueBallPresent)
-        {
+	void OnMouseDown()
+	{
+		if (!isBlueBallPresent)
+		{
 			bluepulse.snapToParent();
 			bluepulse.stopMovement();
 			bluepulse.zeroForce();
-            isBlueBallPresent = true;
-        }
-    }
+			isBlueBallPresent = true;
+		}
+	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
