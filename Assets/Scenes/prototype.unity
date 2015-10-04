@@ -1741,6 +1741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBlueBallPresent: 1
+  bluepulse: {fileID: 2139709694}
 --- !u!1 &1039818557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,7 +2382,6 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: de2fc3ac651fb9844abe93ab5b0d10bf, type: 2}
-  m_RootGameObject: {fileID: 2139709690}
   m_IsPrefabParent: 0
 --- !u!1 &1336658616
 GameObject:
@@ -3851,122 +3851,13 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2104110259}
---- !u!1 &2139709690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: de2fc3ac651fb9844abe93ab5b0d10bf, type: 2}
-  m_PrefabInternal: {fileID: 1307777449}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2139709691}
-  - 212: {fileID: 2139709697}
-  - 50: {fileID: 2139709696}
-  - 58: {fileID: 2139709695}
-  - 114: {fileID: 2139709694}
-  - 114: {fileID: 2139709692}
-  m_Layer: 0
-  m_Name: bluepulse
-  m_TagString: sphere
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2139709691
+--- !u!4 &2139709691 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: de2fc3ac651fb9844abe93ab5b0d10bf, type: 2}
   m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -.399997711, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
-  m_Children: []
-  m_Father: {fileID: 997754820}
-  m_RootOrder: 0
---- !u!114 &2139709692
+--- !u!114 &2139709694 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: de2fc3ac651fb9844abe93ab5b0d10bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 232d729d5312cdf46902b66d512e3f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2139709694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: de2fc3ac651fb9844abe93ab5b0d10bf,
     type: 2}
   m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2620d0ddf7a34664785ccc7594ceff00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 10, y: 10}
-  direction: {x: 1, y: 1}
-  isBlue: 1
-  hasBeenHitByBlue: 0
-  myColor: {r: .321568638, g: .811764717, b: .984313726, a: 1}
---- !u!58 &2139709695
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5800000, guid: de2fc3ac651fb9844abe93ab5b0d10bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .275000006
---- !u!50 &2139709696
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5000000, guid: de2fc3ac651fb9844abe93ab5b0d10bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_Mass: .100000001
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!212 &2139709697
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 21200000, guid: de2fc3ac651fb9844abe93ab5b0d10bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1307777449}
-  m_GameObject: {fileID: 2139709690}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 3270ba2325d9a7e459f34946b8d97945, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
