@@ -79,6 +79,16 @@ public class movementController : MonoBehaviour
 		this.transform.localPosition = Vector3.zero;
 	}
 
+	public void root()
+	{
+		GetComponent<Rigidbody2D>().isKinematic = true;
+	}
+
+	public void unroot()
+	{
+		GetComponent<Rigidbody2D>().isKinematic = false;
+	}
+
 	public void stopMovement()
 	{
 		curVelocity = this.GetComponent<Rigidbody2D>().velocity;

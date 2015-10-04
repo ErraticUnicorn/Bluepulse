@@ -22,6 +22,8 @@ public class inputController : MonoBehaviour
 	{
 		lastPos = this.transform.position;
 		movement.stopMovement();
+		movement.zeroForce();
+		movement.root();
 		actionOngoing = true;
 	}
 
@@ -29,6 +31,7 @@ public class inputController : MonoBehaviour
 	{
 		if (actionOngoing)
 		{
+			movement.unroot();
 			Vector3 pos = Input.mousePosition;
 			pos.z = transform.position.z - Camera.main.transform.position.z;
 			mousePos = Camera.main.ScreenToWorldPoint(pos);
