@@ -13,9 +13,10 @@ public class Generator : MonoBehaviour
 
 	public void AddValue( float _value )
 	{
-		if (value < 100)
+		float newValue = value + _value;
+		if (newValue < 100f)
 		{
-			SetValue( value + _value );
+			SetValue( newValue );
 		}
 	}
 
