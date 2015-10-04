@@ -4,27 +4,32 @@ using System.Collections;
 public class bluePulseSpawner : MonoBehaviour {
 
     public bool isBlueBallPresent = true;
-    private GameObject bluepulse;
-    private Vector3 startPos;
-
-    void Awake()
-    {
-        bluepulse = GameObject.Find("bluepulse");
-        startPos = bluepulse.transform.position;
-    }
+    public movementController bluepulse;
 
     void OnMouseDown()
     {
         if (!isBlueBallPresent)
         {
-
-            bluepulse.GetComponent<Rigidbody2D>().Sleep();
-            bluepulse.transform.position = startPos;
-            bluepulse.GetComponent<Rigidbody2D>().Sleep();
-            bluepulse.GetComponent<Rigidbody2D>().WakeUp();
+			bluepulse.snapToParent();
+			bluepulse.stopMovement();
+			bluepulse.zeroForce();
             isBlueBallPresent = true;
         }
     }
 
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.Equals(bluepulse.gameObject))
+		{
+			isBlueBallPresent = true;
+		}
+	}
 
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject.Equals(bluepulse.gameObject))
+		{
+			isBlueBallPresent = false;
+		}
+	}
 }

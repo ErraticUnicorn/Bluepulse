@@ -74,6 +74,10 @@ public class movementController : MonoBehaviour {
 
     }
 
+	public void snapToParent()
+	{
+		this.transform.localPosition = Vector3.zero;
+	}
 
     public void stopMovement() {
         curVelocity = this.GetComponent<Rigidbody2D>().velocity;
