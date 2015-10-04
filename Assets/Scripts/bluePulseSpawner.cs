@@ -18,10 +18,10 @@ public class bluePulseSpawner : MonoBehaviour {
         if (!isBlueBallPresent)
         {
 
-            bluepulse.rigidbody2D.Sleep();
+            bluepulse.GetComponent<Rigidbody2D>().Sleep();
             bluepulse.transform.position = startPos;
-            bluepulse.rigidbody2D.Sleep();
-            bluepulse.rigidbody2D.WakeUp();
+            bluepulse.GetComponent<Rigidbody2D>().Sleep();
+            bluepulse.GetComponent<Rigidbody2D>().WakeUp();
             isBlueBallPresent = true;
         }
     }

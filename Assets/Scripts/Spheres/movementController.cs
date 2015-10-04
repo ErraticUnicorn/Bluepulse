@@ -11,7 +11,6 @@ public class movementController : MonoBehaviour {
 	public Color myColor;
 
     private Vector2 movement;
-    private float accelConst = 1;
     private Vector2 minspeed;
 
     private Vector3 leftEdge;
@@ -23,15 +22,12 @@ public class movementController : MonoBehaviour {
     private Vector2 curVelocity;
     private Vector2 curDirection;
 
-	private bool isTouching;
-
 	// Use this for initialization
 	void Start () {
         leftEdge = Camera.main.ViewportToWorldPoint (new Vector3(2.0f,0.0f, 0.0f));
         rightEdge = Camera.main.ViewportToWorldPoint ( new Vector3(-2.0f,0.0f, 0.0f));
         bottomEdge = Camera.main.ViewportToWorldPoint ( new Vector3(0.0f,1.0f, 0.0f));
         topEdge = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
-		isTouching = false;
 
 		if (!isBlue)
 		{
@@ -48,27 +44,27 @@ public class movementController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        Vector2 curSpeed = this.rigidbody2D.velocity;
+        Vector2 curSpeed = this.GetComponent<Rigidbody2D>().velocity;
 
         if (transform.position.x > rightEdge.x)
         {
-            curSpeed.x = -this.rigidbody2D.velocity.x;
-            this.rigidbody2D.velocity = curSpeed;
+            curSpeed.x = -this.GetComponent<Rigidbody2D>().velocity.x;
+            this.GetComponent<Rigidbody2D>().velocity = curSpeed;
         }
         if (transform.position.x < leftEdge.x)
         {
-            curSpeed.x = -this.rigidbody2D.velocity.x;
-            this.rigidbody2D.velocity = curSpeed;
+            curSpeed.x = -this.GetComponent<Rigidbody2D>().velocity.x;
+            this.GetComponent<Rigidbody2D>().velocity = curSpeed;
         }
         if (transform.position.y < bottomEdge.y)
         {
-            curSpeed.y = -this.rigidbody2D.velocity.y;
-            this.rigidbody2D.velocity = curSpeed;
+            curSpeed.y = -this.GetComponent<Rigidbody2D>().velocity.y;
+            this.GetComponent<Rigidbody2D>().velocity = curSpeed;
         }
         if (transform.position.y > topEdge.y)
         {
-            curSpeed.y = -this.rigidbody2D.velocity.y;
-            this.rigidbody2D.velocity = curSpeed;
+            curSpeed.y = -this.GetComponent<Rigidbody2D>().velocity.y;
+            this.GetComponent<Rigidbody2D>().velocity = curSpeed;
         }
        
 		if (!isBlue && !hasBeenHitByBlue)
@@ -80,12 +76,12 @@ public class movementController : MonoBehaviour {
 
 
     public void stopMovement() {
-        curVelocity = this.rigidbody2D.velocity;
-        this.rigidbody2D.velocity = Vector2.zero;
+        curVelocity = this.GetComponent<Rigidbody2D>().velocity;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public void resumeMovement() {
-        rigidbody2D.AddForce(curVelocity);
+        GetComponent<Rigidbody2D>().AddForce(curVelocity);
     }
 
     public Vector2 getCurDirection(){
@@ -93,8 +89,8 @@ public class movementController : MonoBehaviour {
     }
 
     public void zeroForce(){
-        this.rigidbody2D.Sleep();
-        this.rigidbody2D.WakeUp();
+        this.GetComponent<Rigidbody2D>().Sleep();
+        this.GetComponent<Rigidbody2D>().WakeUp();
     }
 
     public void addForce(float constant, Vector2 direction) {
@@ -102,7 +98,7 @@ public class movementController : MonoBehaviour {
         float speedx = speed.x * direction.x;
         float speedy = speed.y * direction.y;
         Vector2 newSpeed = new Vector2(constant * speedx, constant * speedy);
-        rigidbody2D.AddForce(newSpeed);
+        GetComponent<Rigidbody2D>().AddForce(newSpeed);
     }
 
     public void OnCollisionEnter2D(Collision2D other){
@@ -145,19 +141,6 @@ public class movementController : MonoBehaviour {
 			transform.position = originalPos;
 		}
     }
-
-	void OnCollisionStay2D(Collider2D other)
-	{
-		if (other.gameObject.tag != "sphere")
-		{
-			isTouching = true;
-		}
-	}
-
-	void OnCollisionExit2D(Collider2D other)
-	{
-		isTouching = false;
-	}
 
      void OnTriggerEnter2D(Collider2D other)
     {

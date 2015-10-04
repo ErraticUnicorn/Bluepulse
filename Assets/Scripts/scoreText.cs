@@ -11,7 +11,7 @@ public class scoreText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.guiText.text = score.ToString();
+        this.GetComponent<GUIText>().text = score.ToString();
 	}
 
     public void updateScore(int add)

@@ -6,12 +6,10 @@ public class inputController : MonoBehaviour {
     private bool actionOngoing;
     private Vector3 lastPos;
     private Vector3 mousePos;
-    private colorController currentColor;
     private movementController movement;
 	// Use this for initialization
 	void Start () {
         actionOngoing = false;
-        currentColor = this.gameObject.GetComponent<colorController>();
         movement = this.gameObject.GetComponent<movementController>();
 	}
 	
