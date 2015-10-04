@@ -1,0 +1,71 @@
+Alpha Build Notes
+-    Static Shock    -
+Bluepulse Studios
+
+Raphael Arkera & Gopal Metro Discussion Notes
+
+November 16, 2014 5:00 PM EST
+
+
+
+Problem 1: We always need at least one blue ball on the screen - currently it's easy to be stuck without one for a 			long time.
+
+	Algorithm that ensures that one ball is on the screen at the same time.
+	Anything the player clicks turns blue for a specific amount of time. Click on another one, 	changes color.
+		5 seconds to fire it – fire off chaotically?
+		Release – dependent on length of firing
+		Can move on afterwards.
+		Visual indicator
+
+	Zoom out a little more
+	Pockets closer
+	Camera encompasses whole field
+	Ball spawns randomly (spawn once per level)
+
+	Click it turns blue. Hold to increase velocity. Flick towards the direction it needs to go to.
+
+Solution 1: any ball that the player clicks will turn blue for a specific period of time
+
+
+Problem 2: The Balls all going off the screen does not allow for strategy and causes confusion
+
+Solution 2: We should keep them in the screen.
+
+
+Problem 3: Balls that don't match the color of a pocket still go into the pocket
+
+Solution 3: Balls should bounce off the wrong color pocket if they are not attracted into the pocket.
+
+Reset game
+Main 	Menu
+Blue ball thrrough gate
+Balls set on  a timer
+Timer is visible
+
+
+
+Notes/Ideas
+
+When you click a ball - 5 seconds to score - everything gets randomized
+
+When all balls in the screen following an on screen timer
+
+As levels progress the ball speed increase and the timer goes down
+
+The varying degrees in setting should give enough diversity to make the game interesting throughout
+
+Game Over when engines reach zero - ship crashes -
+
+possibly have it so that the balls can be randomized by the player
+
+Pockets should be inside the screen
+
+Pockets should be sitting more into the middle of the screen
+
+How long you hold the blue orb charges the intensity ? Could create a circle around the ball for a visual indicator to how charged the shot is.
+
+Let's create a score bar (energy meter) for each pocket (engine)
+
+Game Story & Score:
+
+You are an engineer on a space ship and to keep the ship flying forward you need to sort the colored energy orbs into the correct engines. The difficulty increases and so does the speed of the game and skill required to keep the engines full. Keep track of your highscore of (distance traveled.)
